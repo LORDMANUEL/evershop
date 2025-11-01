@@ -1,0 +1,9 @@
+{
+  "name": "shipping-rules",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "description": "Extensión base para definir reglas de envío personalizadas por zona, peso y dimensiones.",
+  "keywords": ["evershop", "shipping", "logistics"],
+  "license": "GPL-3.0-or-later"
+}

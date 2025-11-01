@@ -11,6 +11,11 @@ dist
 !extensions/resend
 !extensions/sendgrid
 !extensions/product_review
+!extensions/Auto_Fitment
+!extensions/Auto_Search
+!extensions/Auto_VIN
+!extensions/Payments_Local
+!extensions/Shipping_Rules
 /themes
 .idea/*
 .evershop

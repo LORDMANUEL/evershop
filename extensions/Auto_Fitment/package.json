@@ -1,0 +1,9 @@
+{
+  "name": "auto-fitment",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "description": "Extensión base para gestionar compatibilidad de autopartes en EverShop.",
+  "keywords": ["evershop", "autoparts", "fitment"],
+  "license": "GPL-3.0-or-later"
+}

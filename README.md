@@ -3,7 +3,7 @@
 <img width="60" height="68" alt="EverShop Logo" src="https://raw.githubusercontent.com/evershopcommerce/evershop/dev/.github/images/logo-green.png"/>
 </p>
 <p align="center">
-  <h1 align="center">EverShop</h1>
+  <h1 align="center">EverShop &rarr; AutoParts Edition</h1>
 </p>
 <h4 align="center">
     <a href="https://evershop.io/docs/development/getting-started/introduction">Documentation</a> |
@@ -30,6 +30,32 @@
 ## Introduction
 
 EverShop is a modern, TypeScript-first eCommerce platform built with GraphQL and React. Designed for developers, it offers essential commerce features in a modular, fully customizable architecture—perfect for building tailored shopping experiences with confidence and speed.
+
+> 🙌 **Agradecimiento especial**: este proyecto parte del excelente trabajo de la comunidad de [EverShop](https://github.com/evershopcommerce/evershop). Nuestro objetivo es extenderlo respetuosamente para servir a un vertical especializado de autopartes.
+
+## Autoparts vertical (fork status)
+
+Este fork reimagina EverShop como una tienda especializada en repuestos automotrices. El enfoque principal es garantizar que cada producto se relacione con vehículos compatibles, simplificando la búsqueda para el cliente final y agilizando la gestión del catálogo para el equipo comercial.
+
+### Funcionalidades clave (en construcción)
+
+- **Compatibilidad (Fitment) inteligente**: modelos de datos y resolvers GraphQL para asociar productos con Año/Marca/Modelo/Versión/Motor específicos desde `extensions/Auto_Fitment`.
+- **Selector de vehículo + VIN decoding**: widget persistente en el storefront y servicio contra la API NHTSA vPIC (`extensions/Auto_VIN`) para normalizar vehículos y guardarlos en el "Garage" del usuario.
+- **Filtro "Sólo partes compatibles"**: integración del selector con las páginas de listado y producto para mostrar únicamente lo que encaja con el vehículo elegido.
+- **Importadores CSV/Excel**: herramientas en el admin para cargar catálogo, compatibilidad y números de parte desde archivos tabulares, con validación previa.
+- **Atributos específicos de autoparte**: campos como OE/MPN, posición, lado, torque, core charge y garantías visibles tanto en el admin como en el storefront.
+- **Logística adaptada**: reglas de envío por zona, peso y dimensiones, métodos como retiro en tienda y cálculo de core charge desde `extensions/Shipping_Rules`.
+- **Pagos locales y multi-moneda**: extensión `extensions/Payments_Local` basada en el patrón de Stripe para integrar pasarelas regionales.
+- **Búsqueda especializada**: conexión con Meilisearch/Typesense (`extensions/Auto_Search`) para búsquedas por número OE, sinónimos y boosting por compatibilidad.
+
+Consulta `docs/status-and-roadmap.md` para conocer el avance de cada frente y el plan detallado por fases (MVP, escalamiento y optimización).
+
+### Próximos pasos inmediatos
+
+1. Provisionar el entorno local con Docker (`docker-compose up -d`) y ejecutar `npm run setup` para iniciar la base de datos y el usuario admin.
+2. Completar las migraciones y servicios de `extensions/Auto_Fitment` para almacenar vehículos, vínculos de compatibilidad y equivalencias.
+3. Implementar el selector de vehículo y la integración VIN inicial, habilitando el filtro de compatibilidad en el storefront.
+4. Desarrollar los importadores CSV básicos que permitan poblar catálogo y compatibilidad de forma masiva.
 
 ## Installation Using Docker
 

@@ -1,0 +1,9 @@
+{
+  "name": "auto-vin",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "description": "Extensión placeholder para decodificación VIN basada en la API vPIC.",
+  "keywords": ["evershop", "vin", "vpic"],
+  "license": "GPL-3.0-or-later"
+}

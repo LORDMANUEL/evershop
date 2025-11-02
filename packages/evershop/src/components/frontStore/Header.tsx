@@ -1,5 +1,6 @@
 import Area from '@components/common/Area.js';
 import React from 'react';
+import { VehicleSelector } from '@components/frontStore/fitment/VehicleSelector.js';
 
 export function Header() {
   return (
@@ -13,6 +14,13 @@ export function Header() {
         <Area
           id="headerMiddleCenter"
           className="header__middle__center flex justify-center items-center"
+          coreComponents={[
+            {
+              component: { default: <VehicleSelector /> },
+              sortOrder: 10,
+              id: 'vehicleSelector'
+            }
+          ]}
         />
         <Area
           id="headerMiddleRight"

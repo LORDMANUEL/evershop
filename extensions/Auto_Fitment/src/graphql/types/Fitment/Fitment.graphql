@@ -1,0 +1,79 @@
+"""
+Schema additions for vehicle compatibility (fitment) workflows.
+"""
+
+type FitmentEngineOption {
+  code: String
+  name: String
+}
+
+type FitmentVehicle {
+  vehicleId: Int!
+  uuid: String!
+  year: Int!
+  yearFrom: Int
+  yearTo: Int
+  make: String!
+  model: String!
+  submodel: String
+  engineCode: String
+  engineName: String
+  body: String
+  createdAt: String
+  updatedAt: String
+}
+
+type FitmentOptions {
+  years: [Int!]!
+  makes: [String!]!
+  models: [String!]!
+  submodels: [String!]!
+  engines: [FitmentEngineOption!]!
+  vehicle: FitmentVehicle
+}
+
+type FitmentCrossReference {
+  crossReferenceId: Int!
+  referenceType: String!
+  referenceValue: String!
+  referenceBrand: String
+  notes: String
+}
+
+type FitmentImportResult {
+  vehiclesImported: Int!
+  linksImported: Int!
+  crossReferencesImported: Int!
+  errors: [String!]!
+}
+
+input FitmentImportPayload {
+  vehiclesCsv: String
+  linksCsv: String
+  crossReferencesCsv: String
+  dryRun: Boolean
+}
+
+extend type Query {
+  fitmentOptions(
+    vehicleId: Int
+    year: Int
+    make: String
+    model: String
+    submodel: String
+    engineCode: String
+    engineName: String
+  ): FitmentOptions!
+}
+
+extend type Mutation {
+  importFitmentCsv(payload: FitmentImportPayload!): FitmentImportResult!
+}
+
+extend type Product {
+  fitmentVehicles: [FitmentVehicle!]!
+  fits(vehicleId: Int!, vin: String): Boolean!
+  oeNumbers: [String!]
+  mpnNumbers: [String!]
+  crossReferences: [FitmentCrossReference!]!
+}

@@ -1,6 +1,8 @@
 node_modules
 .env
 dist
+!extensions/Auto_Fitment/dist
+!extensions/Auto_VIN/dist
 !packages/create-evershop-app/sample/extensions/sample/dist
 !packages/create-evershop-app/sample/themes/sample/dist
 /extensions/*
@@ -30,6 +32,8 @@ coverage
 cypress
 .turbo
 /config
+!config/
+!config/default.json
 /packages/evershop/config
 .prettierignore
 .prettierrc

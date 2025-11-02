@@ -1,0 +1,31 @@
+{
+  "shop": {
+    "currency": "USD",
+    "language": "en",
+    "weightUnit": "kg",
+    "timezone": "UTC"
+  },
+  "system": {
+    "database": {
+      "host": "localhost",
+      "port": 5432,
+      "database": "evershop",
+      "user": "admin",
+      "password": "123456"
+    },
+    "extensions": [
+      {
+        "name": "Auto_Fitment",
+        "resolve": "./extensions/Auto_Fitment",
+        "enabled": true,
+        "priority": 20
+      },
+      {
+        "name": "Auto_VIN",
+        "resolve": "./extensions/Auto_VIN",
+        "enabled": true,
+        "priority": 30
+      }
+    ]
+  }
+}

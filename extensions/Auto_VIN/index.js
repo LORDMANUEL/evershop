@@ -1,6 +1,12 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default {
   key: 'auto-vin',
-  description: 'Placeholder de la extensión Auto_VIN. Se integrará el servicio de decodificación VIN con vPIC.',
-  api: [],
-  hooks: []
+  name: 'Auto VIN integration',
+  description: 'Decodificación de VIN mediante la API de vPIC para precargar compatibilidades.',
+  routes: [path.resolve(__dirname, './dist/api')]
 };

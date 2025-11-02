@@ -1,0 +1,5 @@
+{
+  "methods": ["POST"],
+  "path": "/fitment/decode-vin",
+  "access": "public"
+}

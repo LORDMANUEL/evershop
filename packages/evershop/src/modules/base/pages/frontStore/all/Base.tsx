@@ -13,6 +13,7 @@ import {
 } from '@components/frontStore/customer/customerContext.js';
 import { Footer } from '@components/frontStore/Footer.js';
 import { Header } from '@components/frontStore/Header.js';
+import { VehicleFitmentProvider } from '@components/frontStore/fitment/VehicleContext.js';
 
 interface BaseProps {
   myCart: CartData;
@@ -45,19 +46,21 @@ export default function Base({
       logoutAPI={logoutApi}
       registerAPI={registerApi}
     >
-      <CartProvider
-        cart={myCart}
-        setting={setting}
-        query={query}
-        addMineCartItemApi={addMineCartItemApi}
-      >
-        <LoadingBar />
-        <Header />
-        <main className="content">
-          <Area id="content" noOuter />
-        </main>
-        <Footer copyRight={themeConfig.copyRight} />
-      </CartProvider>
+      <VehicleFitmentProvider>
+        <CartProvider
+          cart={myCart}
+          setting={setting}
+          query={query}
+          addMineCartItemApi={addMineCartItemApi}
+        >
+          <LoadingBar />
+          <Header />
+          <main className="content">
+            <Area id="content" noOuter />
+          </main>
+          <Footer copyRight={themeConfig.copyRight} />
+        </CartProvider>
+      </VehicleFitmentProvider>
     </CustomerProvider>
   );
 }

@@ -6,6 +6,7 @@ import {
 } from '@components/frontStore/catalog/ProductFilter.js';
 import { _ } from '@evershop/evershop/lib/locale/translate/_';
 import React from 'react';
+import { VehicleCompatibilityToggle } from '@components/frontStore/fitment/VehicleCompatibilityToggle.js';
 
 export function CategoryProductsFilter() {
   const category = useCategory();
@@ -19,12 +20,15 @@ export function CategoryProductsFilter() {
         priceRange={category.priceRange}
       >
         {(renderProps) => (
-          <DefaultProductFilterRenderer
-            renderProps={renderProps}
-            title="Product Filters"
-            className="my-custom-class"
-            showFilterSummary={true}
-          />
+          <>
+            <VehicleCompatibilityToggle renderProps={renderProps} />
+            <DefaultProductFilterRenderer
+              renderProps={renderProps}
+              title="Product Filters"
+              className="my-custom-class"
+              showFilterSummary={true}
+            />
+          </>
         )}
       </ProductFilter>
       <Area id="afterFilter" noOuter />

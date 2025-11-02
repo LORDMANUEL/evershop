@@ -37,25 +37,30 @@ EverShop is a modern, TypeScript-first eCommerce platform built with GraphQL and
 
 Este fork reimagina EverShop como una tienda especializada en repuestos automotrices. El enfoque principal es garantizar que cada producto se relacione con vehículos compatibles, simplificando la búsqueda para el cliente final y agilizando la gestión del catálogo para el equipo comercial.
 
-### Funcionalidades clave (en construcción)
+### Funcionalidades clave
 
-- **Compatibilidad (Fitment) inteligente**: modelos de datos y resolvers GraphQL para asociar productos con Año/Marca/Modelo/Versión/Motor específicos desde `extensions/Auto_Fitment`.
-- **Selector de vehículo + VIN decoding**: widget persistente en el storefront y servicio contra la API NHTSA vPIC (`extensions/Auto_VIN`) para normalizar vehículos y guardarlos en el "Garage" del usuario.
-- **Filtro "Sólo partes compatibles"**: integración del selector con las páginas de listado y producto para mostrar únicamente lo que encaja con el vehículo elegido.
-- **Importadores CSV/Excel**: herramientas en el admin para cargar catálogo, compatibilidad y números de parte desde archivos tabulares, con validación previa.
-- **Atributos específicos de autoparte**: campos como OE/MPN, posición, lado, torque, core charge y garantías visibles tanto en el admin como en el storefront.
-- **Logística adaptada**: reglas de envío por zona, peso y dimensiones, métodos como retiro en tienda y cálculo de core charge desde `extensions/Shipping_Rules`.
-- **Pagos locales y multi-moneda**: extensión `extensions/Payments_Local` basada en el patrón de Stripe para integrar pasarelas regionales.
-- **Búsqueda especializada**: conexión con Meilisearch/Typesense (`extensions/Auto_Search`) para búsquedas por número OE, sinónimos y boosting por compatibilidad.
+**Disponibles en el fork**
+
+- **Compatibilidad (Fitment) inteligente**: tablas, servicios y resolvers GraphQL desde `extensions/Auto_Fitment` para asociar productos con Año/Marca/Modelo/Versión/Motor específicos.
+- **Selector de vehículo + VIN decoding**: widget persistente en el storefront y endpoint `POST /api/fitment/decode-vin` contra la API NHTSA vPIC (`extensions/Auto_VIN`), con almacenamiento en el "Garage" del usuario (localStorage).
+- **Filtro "Sólo partes compatibles"**: integración del selector con las páginas de listado para aplicar filtros dinámicos sobre el catálogo.
+- **Importadores CSV**: página de administración `/fitment/import` para cargar vehículos, compatibilidades y referencias cruzadas en bloque, con soporte de simulación (dry-run).
+
+**En desarrollo**
+
+- **Atributos específicos de autoparte** (OE/MPN, posición, lado, torque, core charge, garantía) visibles en admin y storefront.
+- **Logística adaptada**: reglas de envío por zona, peso y dimensiones desde `extensions/Shipping_Rules`.
+- **Pagos locales y multi-moneda** mediante `extensions/Payments_Local` siguiendo el patrón de Stripe.
+- **Búsqueda especializada** con Meilisearch/Typesense (`extensions/Auto_Search`) para búsquedas por OE, sinónimos y boosting por compatibilidad.
 
 Consulta `docs/status-and-roadmap.md` para conocer el avance de cada frente y el plan detallado por fases (MVP, escalamiento y optimización).
 
 ### Próximos pasos inmediatos
 
-1. Provisionar el entorno local con Docker (`docker-compose up -d`) y ejecutar `npm run setup` para iniciar la base de datos y el usuario admin.
-2. Completar las migraciones y servicios de `extensions/Auto_Fitment` para almacenar vehículos, vínculos de compatibilidad y equivalencias.
-3. Implementar el selector de vehículo y la integración VIN inicial, habilitando el filtro de compatibilidad en el storefront.
-4. Desarrollar los importadores CSV básicos que permitan poblar catálogo y compatibilidad de forma masiva.
+1. Levantar la infraestructura local (Postgres + EverShop) con Docker y ejecutar `npm run setup` seguido de las migraciones de `Auto_Fitment`.
+2. Poblar datos de prueba usando el importador CSV y validar la experiencia de selección de vehículo y filtro de compatibilidad en un entorno real.
+3. Resolver el fallo actual de ESLint para habilitar el linting del monorepo y cubrir los servicios/componentes con pruebas automatizadas.
+4. Priorizar la implementación de atributos específicos, reglas de envío y pasarela local para completar el MVP de autopartes.
 
 ## Installation Using Docker
 

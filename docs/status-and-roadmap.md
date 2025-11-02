@@ -2,33 +2,31 @@
 
 ## Informe de cambios actuales
 
-- Se añadieron las extensiones `Auto_Fitment`, `Auto_VIN`, `Auto_Search`, `Payments_Local` y `Shipping_Rules` como esqueletos documentados dentro de `extensions/`.
-- Cada extensión incluye un `package.json`, un `index.js` placeholder y un `README.md` con los objetivos y siguientes pasos específicos.
-- El repositorio mantiene la base estándar de EverShop: aún no hay migraciones ni componentes personalizados, pero el monorepo ya reconoce las nuevas carpetas para iterar rápidamente.
-- La infraestructura prevista sigue apoyándose en `docker-compose.yml`, preparada para levantar EverShop y Postgres.
+- Se activaron las extensiones `Auto_Fitment` y `Auto_VIN` en `config/default.json`, con credenciales locales por defecto.
+- `Auto_Fitment` ahora incluye migraciones, servicios y resolvers GraphQL para manejar vehículos, vínculos de compatibilidad y referencias cruzadas; además se añadió un importador CSV en el panel de administración (`/fitment/import`).
+- `Auto_VIN` expone el endpoint `POST /api/fitment/decode-vin` con caché en memoria y normalización vía vPIC, reutilizando los servicios de `Auto_Fitment` cuando están disponibles.
+- El storefront incorpora un proveedor de contexto de vehículo, selector persistente en el encabezado, decodificador de VIN y un interruptor "Solo partes compatibles" para filtrar listados.
+- `.gitignore` y el árbol del monorepo se ajustaron para permitir versionar las carpetas `dist` de las extensiones mientras se define un build oficial.
 
 ## Próximos pasos imprescindibles
 
-1. **Provisionar el entorno**: Instalar Docker Engine + Docker Compose, ejecutar `docker-compose up -d`, y correr `npm run setup` para inicializar la base de datos y el usuario administrador.
-2. **Inicializar extensiones**: Configurar scripts de compilación (TS/JS) y registrar cada extensión en los archivos de configuración de EverShop según corresponda (por ejemplo, rutas, hooks, jobs).
-3. **Definir modelo de datos**: Generar migraciones para tablas de compatibilidad (`fitment_vehicle`, `fitment_link`) y referencias cruzadas (`cross_reference`).
-4. **Extender GraphQL**: Añadir campos específicos a `Product` (OE, MPN, posiciones, lados) y exponer resolvers para compatibilidad.
-5. **Construir selector de vehículo**: Implementar un widget persistente para Año/Marca/Modelo/VIN y consumir la API vPIC en la extensión `Auto_VIN`.
-6. **Importadores masivos**: Desarrollar herramientas en el admin (`Auto_Fitment`) para cargar CSV/Excel de catálogo, compatibilidad y cross-reference con validación.
-7. **Ajustar storefront y checkout**: Mostrar atributos clave de autopartes, manejar `coreCharge` y añadir filtros “Sólo compatibles”.
-8. **Pagos y envíos locales**: Adaptar métodos de pago según la región objetivo (`Payments_Local`) y definir reglas de envío por zona/peso (`Shipping_Rules`).
+1. **Provisionar y probar end-to-end**: Levantar la infraestructura local (`docker-compose up -d`, `npm run setup`) y ejecutar las migraciones de `Auto_Fitment` para validar selector, filtro y VIN en un entorno real.
+2. **Resolver linting y pruebas**: Investigar el fallo global de ESLint (`defaultMeta`) para restablecer `npm run lint` y definir cobertura mínima (servicios de fitment, API VIN, componentes de storefront).
+3. **Ampliar catálogo de datos**: Añadir campos de autopartes (OE/MPN, posición, lado, core charge) y exponerlos en admin + storefront, reutilizando los servicios existentes.
+4. **Logística y pagos**: Implementar reglas de envío básicas en `Shipping_Rules` y la pasarela local inicial en `Payments_Local` para cerrar el flujo de checkout.
+5. **Búsqueda y performance**: Planificar la indexación en `Auto_Search` (Meilisearch/Typesense) y estrategias de caché para mejorar la experiencia de navegación.
 
 ## Roadmap por fases
 
 ### Fase 1 (MVP: 1–2 semanas)
 
-- Configurar infraestructura local y workspaces de extensiones.
-- Crear migraciones y modelos para compatibilidad y referencias cruzadas.
-- Extender GraphQL y exponer resolvers de compatibilidad.
-- Implementar selector de vehículo (Año/Marca/Modelo + VIN) y almacenamiento en localStorage.
-- Construir importadores CSV básicos para catálogo y fitment.
-- Ajustar el storefront con filtro “Sólo partes compatibles”.
-- Configurar envíos básicos (tarifa plana por zona, retiro en tienda) y habilitar Stripe o pasarela local mínima.
+- [x] Configurar infraestructura local y workspaces de extensiones.
+- [x] Crear migraciones y modelos para compatibilidad y referencias cruzadas.
+- [x] Extender GraphQL y exponer resolvers de compatibilidad.
+- [x] Implementar selector de vehículo (Año/Marca/Modelo + VIN) y almacenamiento en localStorage.
+- [x] Construir importadores CSV básicos para catálogo y fitment.
+- [x] Ajustar el storefront con filtro “Sólo partes compatibles”.
+- [ ] Configurar envíos básicos (tarifa plana por zona, retiro en tienda) y habilitar Stripe o pasarela local mínima.
 
 ### Fase 2 (Escalamiento: 3–4 semanas)
 

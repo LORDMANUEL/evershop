@@ -5,6 +5,46 @@
     "weightUnit": "kg",
     "timezone": "UTC"
   },
+  "shippingRules": {
+    "flatRate": {
+      "uuid": "11111111-2222-3333-4444-555555555555",
+      "name": "Envío estándar (tarifa plana)",
+      "cost": 12.5
+    },
+    "pickup": {
+      "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+      "name": "Retiro en tienda",
+      "cost": 0
+    },
+    "countries": [
+      { "code": "HN", "label": "Honduras", "flatRateCost": 8.5 },
+      { "code": "GT", "label": "Guatemala", "flatRateCost": 9.5 },
+      { "code": "SV", "label": "El Salvador", "flatRateCost": 10.5 },
+      { "code": "NI", "label": "Nicaragua", "flatRateCost": 11.5 },
+      { "code": "CR", "label": "Costa Rica", "flatRateCost": 14.5 },
+      { "code": "PA", "label": "Panamá", "flatRateCost": 16 },
+      { "code": "US", "label": "Estados Unidos", "flatRateCost": 25 },
+      { "code": "CA", "label": "Canadá", "flatRateCost": 28 }
+    ]
+  },
+  "payments": {
+    "local": {
+      "methods": [
+        {
+          "code": "local_transfer",
+          "name": "Transferencia bancaria (BAC Credomatic)",
+          "currencies": ["HNL", "USD"],
+          "enabled": true
+        },
+        {
+          "code": "local_cash_on_delivery",
+          "name": "Pago contra entrega",
+          "currencies": ["HNL"],
+          "enabled": true
+        }
+      ]
+    }
+  },
   "system": {
     "database": {
       "host": "localhost",
@@ -25,6 +65,18 @@
         "resolve": "./extensions/Auto_VIN",
         "enabled": true,
         "priority": 30
+      },
+      {
+        "name": "Shipping_Rules",
+        "resolve": "./extensions/Shipping_Rules",
+        "enabled": true,
+        "priority": 40
+      },
+      {
+        "name": "Payments_Local",
+        "resolve": "./extensions/Payments_Local",
+        "enabled": true,
+        "priority": 50
       }
     ]
   }

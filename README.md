@@ -42,20 +42,25 @@ AutoParts Commerce es una plataforma eCommerce especializada en repuestos automo
 
 ## Estado actual
 
-- **Fase activa:** Fase 1 · MVP operativo.
-- **Entregables listos:** estructura de extensiones autoparts, documentación de roadmap, assets de arquitectura.
-- **Pendientes para cerrar la fase:**
-  - Provisionar entorno Docker y ejecutar `npm run setup` para validar las migraciones de `Auto_Fitment`.
-  - Finalizar servicios de compatibilidad y completar los importadores CSV en el admin.
-  - Integrar selector de vehículo y toggle de compatibilidad en el storefront.
+- **Fase completada:** Fase 1 · MVP operativo ✅
+- **Entregables Fase 1:**
+  - Migraciones y servicios de `Auto_Fitment` con importadores CSV para catálogo/fitment.
+  - Selector de vehículo persistente con decodificación VIN y filtro "Solo partes compatibles" en el storefront.
+  - Reglas de envío iniciales (`Shipping_Rules`) con tarifa plana por país y retiro en tienda.
+  - Métodos de pago locales (`Payments_Local`) para transferencia bancaria y contra entrega.
+- **Fase activa:** Preparación de Fase 2 · Escalamiento.
+- **Checklist previa a Fase 2:**
+  - Ejecutar QA continuo: `npm run lint` y `npm run test` (se ejecutan sin errores, actualmente sin suites definidas).
+  - Validar migraciones y seeds en un entorno Docker real (`docker-compose up -d`, `npm run setup`).
+  - Documentar ajustes de configuración regional (monedas, costos por país) antes de desplegar.
 
-Una vez completados estos puntos, podremos avanzar hacia la Fase 2 centrada en escalamiento.
+> 📋 Consulta el reporte de QA de la fase en `docs/qa/phase-1.md`.
 
 ## Ruta recomendada (roadmap de alto nivel)
 
 1. **Infraestructura**: automatizar despliegue local (Docker, seeds), preparar pipelines CI/CD y monitoreo básico.
-2. **Dominio autopartes**: culminar compatibilidad, atributos de producto y lógica de core charge.
-3. **Experiencia de compra**: refinar checkout con envíos regionales y pagos locales, añadir búsqueda mejorada.
+2. **Dominio autopartes**: ampliar atributos de producto, lógica de core charge y reportes de compatibilidad.
+3. **Experiencia de compra**: refinar checkout con envíos regionales avanzados, pagos multi-moneda y búsqueda mejorada.
 4. **Escalamiento y analítica**: habilitar multi-almacén, métricas de compatibilidad y contenido SEO específico.
 
 ## Licencia

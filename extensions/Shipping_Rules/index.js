@@ -1,6 +1,6 @@
 export default {
   key: 'shipping-rules',
-  description: 'Placeholder de la extensión Shipping_Rules. Permitirá definir tarifas y SLA por zona, peso y dimensiones.',
-  hooks: [],
-  api: []
+  name: 'Shipping Rules',
+  description:
+    'Gestiona zonas logísticas base con tarifas planas y retiro en tienda para el MVP de autopartes.'
 };

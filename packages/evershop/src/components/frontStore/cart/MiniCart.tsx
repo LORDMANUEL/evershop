@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Area from '@components/common/Area.js';
 import { Image } from '@components/common/Image.js';
 import { ProductNoThumbnail } from '@components/common/ProductNoThumbnail.js';

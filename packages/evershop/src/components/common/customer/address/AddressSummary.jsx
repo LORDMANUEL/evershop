@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Area from '@components/common/Area';
 import React from 'react';
 

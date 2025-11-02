@@ -126,7 +126,6 @@ export const VehicleSelector: React.FC = () => {
       }
     };
     run();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selection.year, selection.make, selection.model, selection.submodel, selection.engineCode, selection.engineName]);
 
   const handleVinDecode = useCallback(

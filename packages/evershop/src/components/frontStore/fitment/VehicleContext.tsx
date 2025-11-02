@@ -71,11 +71,11 @@ const persistVehicle = (vehicle: FitmentVehicle | null) => {
 const defaultState: FitmentState = {
   selectedVehicle: null,
   isLoading: false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   decodeVin: async (_vin: string) => null,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   loadOptions: async (_filters: Record<string, string | number | undefined>) => null,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   setSelectedVehicle: (_vehicle: FitmentVehicle | null) => undefined,
   clearSelection: () => undefined
 };

@@ -3,6 +3,8 @@ node_modules
 dist
 !extensions/Auto_Fitment/dist
 !extensions/Auto_VIN/dist
+!extensions/Payments_Local/dist
+!extensions/Shipping_Rules/dist
 !packages/create-evershop-app/sample/extensions/sample/dist
 !packages/create-evershop-app/sample/themes/sample/dist
 /extensions/*

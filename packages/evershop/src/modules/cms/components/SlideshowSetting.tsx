@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import { FileBrowser } from '@components/admin/FileBrowser.js';
 import { InputField } from '@components/common/form/InputField.js';
 import React, { useEffect } from 'react';

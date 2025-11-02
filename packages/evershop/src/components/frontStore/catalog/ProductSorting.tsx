@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useAppDispatch } from '@components/common/context/app.js';
 import { _ } from '@evershop/evershop/lib/locale/translate/_';
 import React, { ReactNode, useCallback } from 'react';

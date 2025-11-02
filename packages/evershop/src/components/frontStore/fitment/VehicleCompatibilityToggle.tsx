@@ -37,7 +37,6 @@ export const VehicleCompatibilityToggle: React.FC<Props> = ({ renderProps }) => 
         ]);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedVehicle?.vehicleId]);
 
   const handleToggle = () => {

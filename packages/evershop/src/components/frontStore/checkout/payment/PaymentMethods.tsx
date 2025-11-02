@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import { useCheckout } from '@components/frontStore/checkout/checkoutContext.js';
 import { _ } from '@evershop/evershop/lib/locale/translate/_';
 import React from 'react';

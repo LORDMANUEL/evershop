@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa de fases del proyecto</title>
+  <desc id="desc">Resumen visual de las fases para completar el proyecto AutoParts Commerce.</desc>
+  <rect width="720" height="320" fill="#111827" rx="18"/>
+  <g transform="translate(40,40)">
+    <rect width="190" height="240" rx="12" fill="#16a34a"/>
+    <text x="95" y="40" text-anchor="middle" fill="#ecfdf5" font-size="22" font-family="'Segoe UI',sans-serif">Fase 1</text>
+    <text x="95" y="70" text-anchor="middle" fill="#dcfce7" font-size="14" font-family="'Segoe UI',sans-serif">MVP operativo</text>
+    <foreignObject x="20" y="90" width="150" height="160">
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <ul style="margin:0;padding-left:20px;color:#f0fdf4;font-family:'Segoe UI',sans-serif;font-size:13px;line-height:1.5;">
+          <li>Infraestructura Docker</li>
+          <li>Fitment y GraphQL</li>
+          <li>Selector VIN</li>
+          <li>Importadores CSV</li>
+        </ul>
+      </body>
+    </foreignObject>
+  </g>
+  <g transform="translate(265,40)">
+    <rect width="190" height="240" rx="12" fill="#f97316"/>
+    <text x="95" y="40" text-anchor="middle" fill="#fff7ed" font-size="22" font-family="'Segoe UI',sans-serif">Fase 2</text>
+    <text x="95" y="70" text-anchor="middle" fill="#ffedd5" font-size="14" font-family="'Segoe UI',sans-serif">Escalamiento</text>
+    <foreignObject x="20" y="90" width="150" height="160">
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <ul style="margin:0;padding-left:20px;color:#fff7ed;font-family:'Segoe UI',sans-serif;font-size:13px;line-height:1.5;">
+          <li>Búsqueda avanzada</li>
+          <li>Logística multi-almacén</li>
+          <li>Pagos locales</li>
+          <li>Paneles de control</li>
+        </ul>
+      </body>
+    </foreignObject>
+  </g>
+  <g transform="translate(490,40)">
+    <rect width="190" height="240" rx="12" fill="#8b5cf6"/>
+    <text x="95" y="40" text-anchor="middle" fill="#f5f3ff" font-size="22" font-family="'Segoe UI',sans-serif">Fase 3</text>
+    <text x="95" y="70" text-anchor="middle" fill="#ede9fe" font-size="14" font-family="'Segoe UI',sans-serif">Optimización</text>
+    <foreignObject x="20" y="90" width="150" height="160">
+      <body xmlns="http://www.w3.org/1999/xhtml">
+        <ul style="margin:0;padding-left:20px;color:#ede9fe;font-family:'Segoe UI',sans-serif;font-size:13px;line-height:1.5;">
+          <li>Automatización catálogo</li>
+          <li>Analytics y SEO</li>
+          <li>Pruebas automatizadas</li>
+          <li>Integraciones premium</li>
+        </ul>
+      </body>
+    </foreignObject>
+  </g>
+  <path d="M230 160h35" stroke="#f9fafb" stroke-width="6" marker-end="url(#arrow)"/>
+  <path d="M455 160h35" stroke="#f9fafb" stroke-width="6" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f9fafb" />
+    </marker>
+  </defs>
+</svg>
